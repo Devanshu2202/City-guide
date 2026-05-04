@@ -33,9 +33,10 @@ const Buddies = () => {
 
                         <div className="relative">
                             <img
-                                src={buddy.image}
+                                src={buddy.
+                                    profile_pic}
                                 alt={buddy.name}
-                                className="w-full h-56 object-cover"
+                                className="w-full object-cover "
                             />
 
                             <div className="absolute inset-0 bg-black/40"></div>
