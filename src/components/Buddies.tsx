@@ -31,12 +31,12 @@ const Buddies = () => {
                 {buddies.map((buddy) => (
                     <div key={buddy.id} className="bg-white rounded-xl shadow-md overflow-hidden">
 
-                        <div className="relative">
+                        <div className="relative overflow-hidden aspect-4/3">
                             <img
                                 src={buddy.
                                     profile_pic}
                                 alt={buddy.name}
-                                className="w-full object-cover "
+                                className="w-full h-full  object-cover "
                             />
 
                             <div className="absolute inset-0 bg-black/40"></div>
