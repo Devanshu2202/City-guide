@@ -21,13 +21,68 @@ const Buddies = () => {
     }, []);
 
     return (
-        <div>
-            {buddies.map((buddy) => (
-                <div key={buddy.id}>
-                    <h2>{buddy.name}</h2>
-                    <h2>{buddy.age}</h2>
-                </div>
-            ))}
+        <div className="p-6  pt-24">
+
+            <h2 className="text-xl font-semibold mb-6">
+                Showing {buddies.length} verified buddies
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {buddies.map((buddy) => (
+                    <div key={buddy.id} className="bg-white rounded-xl shadow-md overflow-hidden">
+
+                        <div className="relative">
+                            <img
+                                src={buddy.image}
+                                alt={buddy.name}
+                                className="w-full h-56 object-cover"
+                            />
+
+                            <div className="absolute inset-0 bg-black/40"></div>
+
+                            <div className="absolute bottom-4 left-4 text-white">
+                                <h2 className="text-lg font-bold">{buddy.name}</h2>
+                                <p className="text-sm">{buddy.city}</p>
+                            </div>
+
+                            {buddy.verified && (
+                                <div className="absolute top-3 right-3 bg-white text-green-600 text-xs px-3 py-1 rounded-full">
+                                    ✔ Verified
+                                </div>
+                            )}
+                        </div>
+
+                        <div className="p-4">
+
+                            <div className="flex justify-between items-center">
+                                <p className="text-orange-500 font-semibold">
+                                    ⭐ {buddy.rating} ({buddy.reviews})
+                                </p>
+                                <p className="font-bold text-blue-600">
+
+                                    ₹{buddy.services.price}/hr
+                                </p>
+                            </div>
+
+                            <p className="text-sm text-gray-500 mt-2">
+                                {buddy.languages?.join(" • ")}
+                            </p>
+
+                            {/* <div className="flex flex-wrap gap-2 mt-3">
+                                {buddy.tags?.map((tag, index) => (
+                                    <span
+                                        key={index}
+                                        className="bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full"
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div> */}
+
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
