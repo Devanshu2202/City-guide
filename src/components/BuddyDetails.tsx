@@ -12,7 +12,9 @@ const BuddyDetails = () => {
             );
             const data = await res.json();
 
-            setBuddy(data);
+            console.log("data", data)
+
+            setBuddy(data[0]);
         };
 
         fetchBuddy();
@@ -21,13 +23,13 @@ const BuddyDetails = () => {
     if (!buddy) return <h2 className="text-center mt-10" > Loading...</h2>;
 
     return (
-        <div className="max-w-5xl mx-auto p-6" >
+        <div className="max-w-5xl mx-auto p-6 pt-30" >
 
-            < div className="relative" >
+            < div className="relative overflow-hidden aspect-4/3" >
                 <img
-                    src={buddy.image}
+                    src={buddy.profile_pic}
                     alt={buddy.name}
-                    className="w-full h-96 object-cover rounded-2xl"
+                    className="w-full h-full object-cover rounded-2xl"
                 />
 
                 < div className="absolute inset-0 bg-black/30 rounded-2xl" > </div>
@@ -43,7 +45,8 @@ const BuddyDetails = () => {
 
                 < div className="flex justify-between items-center mt-4" >
                     <p className="text-lg" >
-                        ⭐ {buddy.rating} ({buddy.reviews})
+                        ⭐ {buddy.rating} ({buddy.reviews_snapshot[0].rating
+                        })
                     </p>
 
                     < p className="text-xl font-bold text-orange-500" >
@@ -55,7 +58,7 @@ const BuddyDetails = () => {
                     Languages: {buddy.languages?.join(", ")}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mt-4" >
+                {/* <div className="flex flex-wrap gap-2 mt-4" >
                     {
                         buddy.tags?.map((tag, i) => (
                             <span
@@ -66,7 +69,7 @@ const BuddyDetails = () => {
                             </span>
                         ))
                     }
-                </div>
+                </div> */}
 
                 <button className="mt-6 w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-semibold" >
                     Book This Buddy
