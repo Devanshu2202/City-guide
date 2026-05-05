@@ -61,7 +61,7 @@ const Buddies = () => {
                                 </p>
                                 <p className="font-bold text-blue-600">
 
-                                    ₹{buddy.services.price}/hr
+                                    ₹{buddy.services?.[0]?.price_per_hour}
                                 </p>
                             </div>
 

@@ -47,7 +47,7 @@ const BuddyDetails = () => {
                     </p>
 
                     < p className="text-xl font-bold text-orange-500" >
-                        ₹{buddy.price}/hr
+                        ₹{buddy.services?.[0]?.price_per_hour}/hr
                     </p>
                 </div>
 
