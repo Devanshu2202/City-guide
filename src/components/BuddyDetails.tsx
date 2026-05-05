@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const BuddyDetails = () => {
@@ -23,57 +23,53 @@ const BuddyDetails = () => {
     if (!buddy) return <h2 className="text-center mt-10" > Loading...</h2>;
 
     return (
-        <div className="max-w-5xl mx-auto p-6 pt-30" >
+        <div className="max-w-6xl mx-auto p-6 pt-28">
 
-            < div className="relative overflow-hidden aspect-4/3" >
-                <img
-                    src={buddy.profile_pic}
-                    alt={buddy.name}
-                    className="w-full h-full object-cover rounded-2xl"
-                />
+            <Link
+                to="/buddies"
+                className="text-gray-600 hover:underline mb-6 inline-block"
+            >
+                ← Back to all buddies
+            </Link>
 
-                < div className="absolute inset-0 bg-black/30 rounded-2xl" > </div>
+            <div className="flex flex-col md:flex-row gap-10">
 
-                <h1 className="absolute bottom-6 left-6 text-3xl font-bold text-white" >
-                    {buddy.name}
-                </h1>
-            </div>
-
-            <div className="bg-white shadow-lg rounded-2xl p-6 mt-6" >
-
-                <p className="text-gray-500 text-lg" > {buddy.city} </p>
-
-                < div className="flex justify-between items-center mt-4" >
-                    <p className="text-lg" >
-                        ⭐ {buddy.rating} ({buddy.reviews_snapshot[0].rating
-                        })
-                    </p>
-
-                    < p className="text-xl font-bold text-orange-500" >
-                        ₹{buddy.services?.[0]?.price_per_hour}/hr
-                    </p>
+                <div className="md:w-1/2">
+                    <img
+                        src={buddy.profile_pic}
+                        alt={buddy.name}
+                        className="w-full h-[400px] object-cover rounded-xl"
+                    />
                 </div>
 
-                < p className="mt-4 text-gray-600" >
-                    Languages: {buddy.languages?.join(", ")}
-                </p>
+                <div className="md:w-1/2">
 
-                {/* <div className="flex flex-wrap gap-2 mt-4" >
-                    {
-                        buddy.tags?.map((tag, i) => (
-                            <span
-                                key={i}
-                                className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm"
-                            >
-                                {tag}
-                            </span>
-                        ))
-                    }
-                </div> */}
+                    <h1 className="text-3xl font-bold mb-2">
+                        {buddy.name}
+                    </h1>
 
-                <button className="mt-6 w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-semibold" >
-                    Book This Buddy
-                </button>
+                    <p className="text-gray-500 mb-2">
+                        {buddy.city}
+                    </p>
+
+                    <p className="text-lg font-semibold mb-4">
+                        ₹{buddy.services?.[0]?.price_per_hour}/hr
+                    </p>
+
+                    <p className="text-gray-600 mb-4">
+                        {buddy.bio}
+                    </p>
+
+                    <p className="text-sm text-gray-500 mb-6">
+                        Languages: {buddy.languages?.join(", ")}
+                    </p>
+
+                    <button className="bg-black text-white px-6 py-3 rounded-lg">
+                        Book this buddy
+                    </button>
+
+                </div>
+
             </div>
         </div>
     );
