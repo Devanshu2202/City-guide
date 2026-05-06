@@ -48,7 +48,7 @@ const BuddyDetails = () => {
                         {buddy.name}
                     </h1>
 
-                    <p className="text-gray-500 mb-2">
+                    <p className="text-gray-800 mb-2">
                         {buddy.city}
                     </p>
 
@@ -60,7 +60,7 @@ const BuddyDetails = () => {
                         {buddy.bio}
                     </p>
 
-                    <p className="text-sm text-gray-500 mb-6">
+                    <p className="text-sm text-gray-600 font-bold mb-6">
                         Languages: {buddy.languages?.join(", ")}
                     </p>
 

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import Logo2 from "../assets/LogoImage2.png";
+import { RiUserLocationFill } from "react-icons/ri";
+// import Logo2 from "../assets/LogoImage2.png";
 
 
 const Header = () => {
@@ -7,16 +8,21 @@ const Header = () => {
         <nav className="flex justify-between items-center px-4 py-3 
 bg-black/30 backdrop-blur-md text-white absolute top-0 left-0 w-full z-20">
 
-            {/* Logo */}
-            <div className="h-16 w-28">
-                <img src={Logo2} alt="logo" className="h-full w-full object-contain" />
-            </div>
+            <Link to="/">
 
-            {/* Nav Links */}
+                <div className="flex items-center gap-2 group"><div className="bg-orange-400 p-2 rounded-xl shadow-sm
+            group-hover:bg-orange-500 transition-colors duration-200">
+
+                    <RiUserLocationFill />
+                </div><span className="text-xl font-extrabold text-slate-900 tracking-tight text-white">City Guide</span></div>
+            </Link>
+
             <div className="space-x-6 hidden md:flex">
-                <Link to="/" className="hover:text-orange-400">
-                    Home
+
+                <Link to="about" className="hover:text-orange-400">
+                    Host
                 </Link>
+
                 <Link to="about" className="hover:text-orange-400">
                     About
                 </Link>
@@ -25,7 +31,6 @@ bg-black/30 backdrop-blur-md text-white absolute top-0 left-0 w-full z-20">
                 </Link>
             </div>
 
-            {/* Right Button */}
             <button className="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-lg font-semibold">
                 Become a Host
             </button>
