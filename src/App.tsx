@@ -4,6 +4,11 @@ import About from "./components/About";
 import Layout from "./components/Layout";
 import Buddies from "./components/Buddies";
 import BuddyDetails from "./components/BuddyDetails"
+import HostLayout from "./components/HostLayout";
+import DashBoard from "./Pages/Host/DashBoard";
+import Income from "./Pages/Host/Income";
+import Reviews from "./Pages/Host/Reviews";
+import ServicesList from "./Pages/Host/ServiceList";
 
 function App() {
   return (
@@ -14,6 +19,13 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="buddies" element={<Buddies />} />
           <Route path="buddies/:id" element={<BuddyDetails />} />
+          <Route path="host" element={<HostLayout />}>
+            <Route index element={<DashBoard />} />
+            <Route path="income" element={<Income />} />
+            <Route path="reviews" element={<Reviews />} />
+            <Route path="services" element={<ServicesList />} />
+
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
