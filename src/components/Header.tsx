@@ -19,7 +19,7 @@ bg-black/30 backdrop-blur-md text-white absolute top-0 left-0 w-full z-20">
 
             <div className="space-x-6 hidden md:flex">
 
-                <Link to="about" className="hover:text-orange-400">
+                <Link to="" className="hover:text-orange-400">
                     Host
                 </Link>
 
