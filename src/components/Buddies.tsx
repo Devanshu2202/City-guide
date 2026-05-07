@@ -10,7 +10,7 @@ const Buddies = () => {
                 const res = await fetch("https://city-guide-server.onrender.com/api");
                 const data = await res.json();
 
-                console.log(data);
+                console.log("BUddies data", data);
 
                 setBuddies(data.buddies);
             } catch (error) {

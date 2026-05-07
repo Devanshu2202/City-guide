@@ -14,7 +14,8 @@ bg-black/30 backdrop-blur-md text-white absolute top-0 left-0 w-full z-20">
             group-hover:bg-orange-500 transition-colors duration-200">
 
                     <RiUserLocationFill />
-                </div><span className="text-xl font-extrabold text-slate-900 tracking-tight text-white">City Guide</span></div>
+                </div><span className="text-xl font-extrabold tracking-tight text-white">City Guide</span>
+                </div>
             </Link>
 
             <div className="space-x-6 hidden md:flex">
