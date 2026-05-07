@@ -32,9 +32,11 @@ bg-black/30 backdrop-blur-md text-white absolute top-0 left-0 w-full z-20">
                 </Link>
             </div>
 
-            <button className="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-lg font-semibold">
-                Become a Host
-            </button>
+            <Link to="/host-login">
+                <button className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-lg font-semibold transition">
+                    Become a Host
+                </button>
+            </Link>
         </nav>
     );
 };

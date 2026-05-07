@@ -9,6 +9,7 @@ import DashBoard from "./Pages/Host/DashBoard";
 import Income from "./Pages/Host/Income";
 import Reviews from "./Pages/Host/Reviews";
 import ServicesList from "./Pages/Host/ServiceList";
+import HostLogin from "./Pages/Host/Login";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="services" element={<ServicesList />} />
 
           </Route>
+          <Route path="host-login" element={<HostLogin />} />
         </Route>
       </Routes>
     </BrowserRouter>

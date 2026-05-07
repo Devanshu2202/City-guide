@@ -1,97 +1,63 @@
 const Dashboard = () => {
     return (
-        <div className="pt-10">
+        <section className="min-h-screen bg-orange-50 p-6">
+            {/* Welcome Section */}
+            <div className="bg-orange-200 p-6 rounded-2xl mb-6">
+                <h1 className="text-3xl font-bold text-gray-900">
+                    Welcome back, Devanshu!
+                </h1>
 
-            <div className="bg-orange-50 rounded-xl p-6 flex justify-between items-center">
-                <div>
-                    <h1 className="text-3xl font-bold text-gray-800">
-                        Welcome back!
-                    </h1>
+                <p className="text-gray-700 mt-2">
+                    Here’s what’s happening with your buddies today.
+                </p>
 
-                    <p className="text-gray-500 mt-2">
-                        Here’s what’s happening with your services today.
-                    </p>
-                </div>
-
-                <button className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-lg font-semibold transition">
-                    View Profile
+                <button className="mt-4 bg-black text-white px-5 py-2 rounded-lg">
+                    Explore Buddies
                 </button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-
-                {/* Earnings */}
-                <div className="bg-white shadow-md rounded-xl p-6">
-                    <p className="text-gray-500">Total Earnings</p>
-
-                    <h2 className="text-3xl font-bold mt-2">
-                        ₹48,500
-                    </h2>
-
-                    <p className="text-green-600 mt-2 text-sm">
-                        +12% this month
-                    </p>
+            {/* Stats Cards */}
+            <div className="grid md:grid-cols-3 gap-5">
+                <div className="bg-white p-5 rounded-2xl shadow-sm">
+                    <h2 className="text-gray-500 text-sm">Total Buddies</h2>
+                    <p className="text-3xl font-bold mt-2">128</p>
                 </div>
 
-                <div className="bg-white shadow-md rounded-xl p-6">
-                    <p className="text-gray-500">Total Tours</p>
-
-                    <h2 className="text-3xl font-bold mt-2">
-                        128
-                    </h2>
-
-                    <p className="text-blue-600 mt-2 text-sm">
-                        8 new bookings
-                    </p>
+                <div className="bg-white p-5 rounded-2xl shadow-sm">
+                    <h2 className="text-gray-500 text-sm">Trips Planned</h2>
+                    <p className="text-3xl font-bold mt-2">24</p>
                 </div>
 
-                <div className="bg-white shadow-md rounded-xl p-6">
-                    <p className="text-gray-500">Average Rating</p>
-
-                    <h2 className="text-3xl font-bold mt-2">
-                        ⭐ 4.9
-                    </h2>
-
-                    <p className="text-orange-500 mt-2 text-sm">
-                        Based on 312 reviews
-                    </p>
+                <div className="bg-white p-5 rounded-2xl shadow-sm">
+                    <h2 className="text-gray-500 text-sm">Messages</h2>
+                    <p className="text-3xl font-bold mt-2">56</p>
                 </div>
-
             </div>
 
-            <div className="bg-white shadow-md rounded-xl p-6 mt-8">
-
+            {/* Recent Activity */}
+            <div className="bg-white p-6 rounded-2xl shadow-sm mt-6">
                 <h2 className="text-2xl font-semibold mb-4">
                     Recent Activity
                 </h2>
 
                 <div className="space-y-4">
-
                     <div className="flex justify-between border-b pb-3">
-                        <p>New booking from Rahul Sharma</p>
-                        <span className="text-gray-500 text-sm">
-                            2 hours ago
-                        </span>
+                        <p>Rahul joined your Goa trip.</p>
+                        <span className="text-gray-500">2h ago</span>
                     </div>
 
                     <div className="flex justify-between border-b pb-3">
-                        <p>You received a 5-star review</p>
-                        <span className="text-gray-500 text-sm">
-                            Yesterday
-                        </span>
+                        <p>A new buddy sent you a request.</p>
+                        <span className="text-gray-500">5h ago</span>
                     </div>
 
                     <div className="flex justify-between">
-                        <p>Tour completed successfully</p>
-                        <span className="text-gray-500 text-sm">
-                            2 days ago
-                        </span>
+                        <p>Your Manali trip is trending.</p>
+                        <span className="text-gray-500">1d ago</span>
                     </div>
-
                 </div>
             </div>
-
-        </div>
+        </section>
     );
 };
 
