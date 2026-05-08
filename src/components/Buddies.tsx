@@ -1,25 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useFetch } from "../Hooks/useFetch";
 
 const Buddies = () => {
-    const [buddies, setBuddies] = useState([]);
-
-    useEffect(() => {
-        const fetchBuddies = async () => {
-            try {
-                const res = await fetch("https://city-guide-server.onrender.com/api");
-                const data = await res.json();
-
-                console.log("BUddies data", data);
-
-                setBuddies(data.buddies);
-            } catch (error) {
-                console.error("Error fetching buddies:", error);
-            }
-        };
-
-        fetchBuddies();
-    }, []);
+    const { data: buddies, loading, error } = useFetch("https://city-guide-server.onrender.com/api")
 
     return (
         <div className="p-6  pt-24">
