@@ -1,10 +1,30 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+
     const navigate = useNavigate();
 
+    const [formData, setFormData] = useState({
+        email: "",
+        password: ""
+    });
+
+    function handleChange(e) {
+
+        const { name, value } = e.target;
+
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value
+        }));
+    }
+
     const handleLogin = (e) => {
+
         e.preventDefault();
+
+        console.log(formData);
 
         navigate("/host");
     };
@@ -31,6 +51,9 @@ const Login = () => {
 
                         <input
                             type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
                             placeholder="rajesh.localbuddy@gmail.com"
                             className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-orange-400"
                         />
@@ -43,6 +66,9 @@ const Login = () => {
 
                         <input
                             type="password"
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChange}
                             placeholder="••••••••"
                             className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-orange-400"
                         />
@@ -54,6 +80,7 @@ const Login = () => {
                     >
                         Secure Login
                     </button>
+
                 </form>
 
                 <p className="text-center text-gray-500 text-sm mt-8">
@@ -65,4 +92,5 @@ const Login = () => {
         </div>
     );
 };
+
 export default Login;
