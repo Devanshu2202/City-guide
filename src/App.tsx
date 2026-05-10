@@ -20,6 +20,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="buddies" element={<Buddies />} />
           <Route path="buddies/:id" element={<BuddyDetails />} />
+
           <Route path="host" element={<HostLayout />}>
             <Route index element={<DashBoard />} />
             <Route path="income" element={<Income />} />
@@ -27,7 +28,7 @@ function App() {
             <Route path="services" element={<ServicesList />} />
 
           </Route>
-          <Route path="host-login" element={<HostLogin />} />
+          <Route path="host-login" element={<Login />} />
         </Route>
       </Routes>
     </BrowserRouter>

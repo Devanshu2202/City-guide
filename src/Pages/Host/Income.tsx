@@ -2,7 +2,6 @@ const Income = () => {
     return (
         <div className="pt-10">
 
-            {/* Heading */}
             <div>
                 <h1 className="text-3xl font-bold text-gray-800">
                     Income
@@ -13,7 +12,6 @@ const Income = () => {
                 </p>
             </div>
 
-            {/* Total Income Card */}
             <div className="bg-orange-50 rounded-xl p-6 mt-8">
 
                 <p className="text-gray-600 text-lg">
@@ -26,7 +24,6 @@ const Income = () => {
 
             </div>
 
-            {/* Transactions */}
             <div className="mt-10">
 
                 <div className="flex justify-between items-center mb-6">

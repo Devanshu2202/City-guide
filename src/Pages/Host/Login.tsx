@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const HostLogin = () => {
+const Login = () => {
     const navigate = useNavigate();
 
     const handleLogin = (e) => {
@@ -65,4 +65,4 @@ const HostLogin = () => {
         </div>
     );
 };
-export default HostLogin;
+export default Login;

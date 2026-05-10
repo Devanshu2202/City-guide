@@ -3,17 +3,20 @@ import { Link } from "react-router-dom";
 import { useFetch } from "../Hooks/useFetch";
 
 const Buddies = () => {
-    const { data: buddies, loading, error } = useFetch("https://city-guide-server.onrender.com/api")
+    const { data, loading, error } = useFetch("https://city-guide-server.onrender.com/api")
+
+
+    const buddies = data?.buddies || [];
 
     return (
         <div className="p-6  pt-24">
 
-            <h2 className="text-xl font-semibold mb-6">
+            {/* <h2 className="text-xl font-semibold mb-6">
                 Showing {buddies.length} verified buddies
-            </h2>
+            </h2> */}
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {buddies.map((buddy) => (
+                {buddies?.map((buddy) => (
                     <Link to={`/buddies/${buddy.id}`} key={buddy.id}>
 
                         <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition cursor-pointer">

@@ -1,26 +1,17 @@
 import { Link, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useFetch } from "../Hooks/useFetch";
 
 const BuddyDetails = () => {
     const { id } = useParams();
-    const [buddy, setBuddy] = useState(null);
+    const { data, loading, error } = useFetch(`https://city-guide-server.onrender.com/api/buddies/${id}`)
 
-    useEffect(() => {
-        const fetchBuddy = async () => {
-            const res = await fetch(
-                `https://city-guide-server.onrender.com/api/buddies/${id}`
-            );
-            const data = await res.json();
+    const buddy = data?.[0];
 
-            console.log("data", data)
+    console.log("buddy", buddy)
 
-            setBuddy(data[0]);
-        };
-
-        fetchBuddy();
-    }, [id]);
-
-    if (!buddy) return <h2 className="text-center mt-10" > Loading...</h2>;
+    if (!buddy) {
+        return <h2 className="text-center mt-10">Loading...</h2>;
+    }
 
     return (
         <div className="max-w-6xl mx-auto p-6 pt-28">
