@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import { RiUserLocationFill } from "react-icons/ri";
-// import Logo2 from "../assets/LogoImage2.png";
+import { UseAuth } from "../context/AuthContext";
 
 
 const Header = () => {
+
+    const { isLogin, signout } = UseAuth();
+
+    console.log("HeaderLogin", isLogin)
     return (
         <nav className="flex justify-between items-center px-4 py-3 
 bg-black/30 backdrop-blur-md text-white absolute top-0 left-0 w-full z-20">
@@ -32,11 +36,44 @@ bg-black/30 backdrop-blur-md text-white absolute top-0 left-0 w-full z-20">
                 </Link>
             </div>
 
-            <Link to="/host-login">
-                <button className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-lg font-semibold transition">
-                    Become a Host
-                </button>
-            </Link>
+            {/* {
+                isLogin ? (
+                    <Link to="/host">
+                        <button className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-lg font-semibold transition">
+                            Host Dashboard
+                        </button>
+                    </Link>
+                ) : (
+                    <Link to="/host-login">
+                        <button className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-lg font-semibold transition">
+                            Login
+                        </button>
+                    </Link>
+                )
+            } */}
+
+
+            {
+                isLogin ? (
+
+                    <div>
+
+                        <button onClick={signout}>
+                            Logout
+                        </button>
+                    </div>
+
+                ) : (
+                    <Link to="/login">
+                        <button className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded-lg font-semibold transition">
+                            Login
+                        </button>
+                    </Link>
+                )
+            }
+
+
+
         </nav>
     );
 };

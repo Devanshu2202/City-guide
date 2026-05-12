@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { UseAuth } from "../../context/AuthContext";
 
 const Login = () => {
 
@@ -9,6 +10,8 @@ const Login = () => {
         email: "",
         password: ""
     });
+
+    const { login } = UseAuth()
 
     function handleChange(e) {
 
@@ -25,6 +28,9 @@ const Login = () => {
         e.preventDefault();
 
         console.log(formData);
+
+        login()
+
 
         navigate("/host");
     };
