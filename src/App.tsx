@@ -9,7 +9,7 @@ import DashBoard from "./Pages/Host/DashBoard";
 import Income from "./Pages/Host/Income";
 import Reviews from "./Pages/Host/Reviews";
 import ServicesList from "./Pages/Host/ServiceList";
-import HostLogin from "./Pages/Host/Login";
+import Login from "./Pages/Host/Login";
 
 function App() {
   return (

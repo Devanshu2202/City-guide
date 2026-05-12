@@ -1,19 +1,37 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useFetch } from "../Hooks/useFetch";
+import BuddyCardSkeleton from "./BuddyCardSkeleton";
 
 const Buddies = () => {
     const { data, loading, error } = useFetch("https://city-guide-server.onrender.com/api")
 
 
     const buddies = data?.buddies || [];
+    if (loading) {
+        return (
+            <div className="p-6 pt-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                {Array.from({ length: 6 }).map((_, index) => (
+                    <BuddyCardSkeleton key={index} />
+                ))}
+
+            </div>
+        );
+    }
+    if (error) {
+        return (
+            <h1 className="text-center text-red-500 text-xl pt-24">
+                Something went wrong...
+            </h1>
+        );
+    }
 
     return (
         <div className="p-6  pt-24">
 
-            {/* <h2 className="text-xl font-semibold mb-6">
+            <h2 className="text-xl font-semibold mb-6">
                 Showing {buddies.length} verified buddies
-            </h2> */}
+            </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {buddies?.map((buddy) => (

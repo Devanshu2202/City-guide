@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { useFetch } from "../Hooks/useFetch";
+import BuddyDetailsSkeleton from "./BuddyDetailsSkeleton";
 
 const BuddyDetails = () => {
     const { id } = useParams();
@@ -11,6 +12,12 @@ const BuddyDetails = () => {
 
     if (!buddy) {
         return <h2 className="text-center mt-10">Loading...</h2>;
+    }
+    if (loading) {
+        return <BuddyDetailsSkeleton />;
+    }
+    if (error) {
+        return <h1>Something went wrong</h1>
     }
 
     return (
