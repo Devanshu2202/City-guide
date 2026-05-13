@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 export const useFetch = (url) => {
 
-    console.log("outsideurlurl", url)
 
 
 

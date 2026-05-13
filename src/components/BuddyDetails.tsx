@@ -8,7 +8,6 @@ const BuddyDetails = () => {
 
     const buddy = data?.[0];
 
-    console.log("buddy", buddy)
 
     if (!buddy) {
         return <h2 className="text-center mt-10">Loading...</h2>;
