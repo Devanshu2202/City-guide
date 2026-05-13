@@ -13,7 +13,7 @@ const Login = () => {
 
     const { login } = UseAuth()
 
-    function handleChange(e) {
+    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
 
         const { name, value } = e.target;
 
@@ -23,7 +23,7 @@ const Login = () => {
         }));
     }
 
-    const handleLogin = (e) => {
+    const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
 
         e.preventDefault();
 

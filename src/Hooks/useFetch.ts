@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
-export const useFetch = (url) => {
+export const useFetch = (url: string) => {
 
 
 
 
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState<Error | null>(null);
 
     const fetchData = async () => {
         console.log("insideurl", url)
@@ -27,7 +27,7 @@ export const useFetch = (url) => {
 
         } catch (error) {
 
-            setError(error);
+            setError(error as Error);
 
         } finally {
 
