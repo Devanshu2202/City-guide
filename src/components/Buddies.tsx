@@ -2,22 +2,42 @@ import { Link } from "react-router-dom";
 import { useFetch } from "../Hooks/useFetch";
 import BuddyCardSkeleton from "./BuddyCardSkeleton";
 
-const Buddies = () => {
-    const { data, loading, error } = useFetch("https://city-guide-server.onrender.com/api")
+interface Service {
+    price_per_hour: number;
+}
 
+interface Buddy {
+    id: string | number;
+    name: string;
+    city: string;
+    profile_pic: string;
+    bio: string;
+    rating: number;
+    reviews: number;
+    verified: boolean;
+    languages: string[];
+    services: Service[];
+}
+
+interface BuddiesResponse {
+    buddies: Buddy[];
+}
+
+const Buddies = () => {
+    const { data, loading, error } = useFetch<BuddiesResponse>("https://city-guide-server.onrender.com/api");
 
     const buddies = data?.buddies || [];
+
     if (loading) {
         return (
             <div className="p-6 pt-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
                 {Array.from({ length: 6 }).map((_, index) => (
                     <BuddyCardSkeleton key={index} />
                 ))}
-
             </div>
         );
     }
+
     if (error) {
         return (
             <h1 className="text-center text-red-500 text-xl pt-24">

@@ -2,21 +2,39 @@ import { Link, useParams } from "react-router-dom";
 import { useFetch } from "../Hooks/useFetch";
 import BuddyDetailsSkeleton from "./BuddyDetailsSkeleton";
 
+interface Service {
+    price_per_hour: number;
+}
+
+interface Buddy {
+    id: string | number;
+    name: string;
+    city: string;
+    profile_pic: string;
+    bio: string;
+    rating: number;
+    reviews: number;
+    verified: boolean;
+    languages: string[];
+    services: Service[];
+}
+
 const BuddyDetails = () => {
     const { id } = useParams();
-    const { data, loading, error } = useFetch(`https://city-guide-server.onrender.com/api/buddies/${id}`)
+    const { data, loading, error } = useFetch<Buddy[]>(`https://city-guide-server.onrender.com/api/buddies/${id}`);
 
     const buddy = data?.[0];
 
-
-    if (!buddy) {
-        return <h2 className="text-center mt-10">Loading...</h2>;
-    }
     if (loading) {
         return <BuddyDetailsSkeleton />;
     }
+
     if (error) {
-        return <h1>Something went wrong</h1>
+        return <h1>Something went wrong</h1>;
+    }
+
+    if (!buddy) {
+        return <h2 className="text-center mt-10">No buddy found.</h2>;
     }
 
     return (

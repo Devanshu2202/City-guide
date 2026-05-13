@@ -1,29 +1,19 @@
 import { useEffect, useState } from "react";
 
-export const useFetch = (url: string) => {
+export const useFetch = <T>(url: string) => {
 
-
-
-
-    const [data, setData] = useState(null);
+    const [data, setData] = useState<T | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<Error | null>(null);
 
     const fetchData = async () => {
-        console.log("insideurl", url)
-
-
         try {
             setLoading(true);
 
             const res = await fetch(url);
-            console.log("insideTryres", res)
+            const json = await res.json() as T;
 
-            const data = await res.json();
-
-            console.log("insideTry", data)
-
-            setData(data);
+            setData(json);
 
         } catch (error) {
 
@@ -35,16 +25,10 @@ export const useFetch = (url: string) => {
 
         }
     };
+
     useEffect(() => {
-        console.log("insideuseeffecturl", url)
-
-
-
         fetchData();
-
     }, [url]);
-
-    console.log("fetchdata", data)
 
     return { data, loading, error };
 };
